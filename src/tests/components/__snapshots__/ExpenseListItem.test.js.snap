@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpenseListItem should render with props 1`] = `
+<div>
+  <Link
+    replace={false}
+    to="/edit/1"
+  >
+    <h3>
+      bcd
+    </h3>
+  </Link>
+  <p>
+    1
+    -
+    -345600000
+  </p>
+</div>
+`;
+
+exports[`ExpenseListItem should render without any props 1`] = `
+<div>
+  <Link
+    replace={false}
+    to="/edit/undefined"
+  >
+    <h3 />
+  </Link>
+  <p>
+    -
+  </p>
+</div>
+`;

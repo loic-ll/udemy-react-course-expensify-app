@@ -7,12 +7,12 @@ import configureStore from './store/configureStore'
 import { addExpense } from './actions/expenses'
 import { setTextFilter } from './actions/filters'
 import getVisibleExpenses from './selectors/expenses'
+import './localize'
 
 import 'normalize.css/normalize.css';
 import 'react-dates/lib/css/_datepicker.css'
 import './styles/styles.scss'
 
-moment.locale('fr-fr');
 
 const store = configureStore();
 const jsx = (

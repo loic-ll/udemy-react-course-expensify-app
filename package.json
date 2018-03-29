@@ -7,11 +7,14 @@
   "scripts": {
     "build:dev": "webpack",
     "build:pro": "webpack -p --env production",
+    "devil": "webpack-dev-server --progress --open",
     "serve": "live-server public/",
-    "start": "webpack-dev-server --progress --open",
-    "test": "jest --config=jest.config.json"
+    "start": "node server/server.js",
+    "test": "jest --config=jest.config.json",
+    "heroku-postbuild": "yarn run build:pro"
   },
   "dependencies": {
+    "express": "4.15.4",
     "moment": "^2.18.1",
     "react": "^16.0.0",
     "react-addons-shallow-compare": "^15.6.2",

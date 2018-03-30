@@ -5,21 +5,21 @@ const expenses = [
     id: '0',
     description: 'abc',
     note: 'now',
-    amount: 0,
+    amount: 10,
     createdAt: 0
   }, 
   {
     id: '1',
     description: 'bcd',
     note: 'before',
-    amount: 1,
+    amount: 22,
     createdAt: moment(0).subtract(4, 'days').valueOf()
   },
   {
     id: '2',
     description: 'cde',
     note: 'after',
-    amount: 2,
+    amount: 300,
     createdAt: moment(0).add(4, 'days').valueOf()
   }
 ];

@@ -11,8 +11,10 @@ exports[`ExpenseListItem should render with props 1`] = `
     </h3>
   </Link>
   <p>
-    $0.01
-    -
+    0.22 $
+    <span>
+       - 
+    </span>
     December 28, 1969
   </p>
 </div>
@@ -27,8 +29,10 @@ exports[`ExpenseListItem should render without any props 1`] = `
     <h3 />
   </Link>
   <p>
-    $0.00
-    -
+    0.00 $
+    <span>
+       - 
+    </span>
     January 1, 1970
   </p>
 </div>

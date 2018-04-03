@@ -40,7 +40,7 @@ test('should setup edit expense action obj', () => {
   expect(action).toEqual({
     type: 'EDIT_EXPENSE',
     id: '123',
-    updates: { note: 'new note!' }
+    values: { note: 'new note!' }
   });
 });
 
@@ -52,7 +52,6 @@ test('should setup add expense action obj with provided values', () => {
   });
 });
 
-// TODO: Mock Firebase to test sync actions
 
 test('should add expense to database and store', (done) => {
   const store = createMockStore({});

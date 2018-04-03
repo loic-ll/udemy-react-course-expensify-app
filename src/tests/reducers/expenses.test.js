@@ -43,35 +43,39 @@ test('should add an expense ', () => {
 });
 
 test('should edit an expense', () => {
-  const updates = {
-    id: expenses[0].id,
+  const id = expenses[0].id;
+  const values = {
     description: '99',
     note: '99',
     amount: 99,
     createdAt: 99
   };
+
   const action = {
     type: 'EDIT_EXPENSE',
-    id: updates.id,
-    updates 
+    id,
+    values,
   };
+
   const state = expensesReducers(expenses, action);
-  expect(state[0]).toEqual(updates);
+  expect(state[0]).toEqual({id, ...values});
 });
 
 test('should not edit any expense if if doesnt exist', () => {
-  const updates = {
-    id: '-1',
+  const id = '-1';
+  const values = {
     description: '99',
     note: '99',
     amount: 99,
     createdAt: 99
   };
+  
   const action = {
     type: 'EDIT_EXPENSE',
-    id: updates.id,
-    updates 
+    id,
+    values,
   };
+
   const state = expensesReducers(expenses, action);
   expect(state).toEqual(expenses);
 

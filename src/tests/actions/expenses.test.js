@@ -27,7 +27,7 @@ jest.mock('../../firebase/firebase', () => {
 const createMockStore = configureMockStore([thunk]);
 
 test('should setup remove expense action obj', () => {
-  const action = removeExpense({ id: '123' });
+  const action = removeExpense('123');
   expect(action).toEqual({
     type: 'REMOVE_EXPENSE',
     id: '123'

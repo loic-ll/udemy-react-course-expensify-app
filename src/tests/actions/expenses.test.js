@@ -11,33 +11,33 @@ import expenses from '../fixtures/expenses';
 jest.mock('../../firebase/firebase', () => {
   const dbMocker = jest.fn();
   const database = new dbMocker();
-  database.ref = jest.fn(reference => {
-    return {
-      push: jest.fn(data => {
+
+  database.ref = jest.fn(reference => ({
+    push: jest.fn(data => ({
+      then: jest.fn(pushCB => {
+        pushCB({key: 'NEWKEY'});
         return {
-          then: jest.fn(pushCB => {
-            pushCB({key: 'NEWKEY'});
-            return {
-              then: jest.fn(test => {
-                test();
-              }),
-            };
+          then: jest.fn(test => {
+            test();
           }),
         };
       }),
-    };
-  });
+    })),
+  }));
 
   return {database};
 });
 
 const createMockStore = configureMockStore([thunk]);
+const defaultMockState = {
+  auth: {uid: 'someid'},
+};
 
-test('should setup remove expense action obj', () => {
-  const action = removeExpense('123');
+test('should setup add expense action obj with provided values', () => {
+  const action = addExpense(expenses[2]);
   expect(action).toEqual({
-    type: 'REMOVE_EXPENSE',
-    id: '123',
+    type: 'ADD_EXPENSE',
+    expense: expenses[2],
   });
 });
 
@@ -50,16 +50,17 @@ test('should setup edit expense action obj', () => {
   });
 });
 
-test('should setup add expense action obj with provided values', () => {
-  const action = addExpense(expenses[2]);
+test('should setup remove expense action obj', () => {
+  const action = removeExpense('123');
   expect(action).toEqual({
-    type: 'ADD_EXPENSE',
-    expense: expenses[2],
+    type: 'REMOVE_EXPENSE',
+    id: '123',
   });
 });
 
 test('should add expense to database and store', done => {
-  const store = createMockStore({});
+  const store = createMockStore(defaultMockState);
+
   const data = {
     description: 'test',
     amount: 12345,
@@ -80,21 +81,3 @@ test('should add expense to database and store', done => {
     done();
   });
 });
-//
-// test('should add expense with default values to databse and store', () => {
-//
-// });
-
-// test('should setup add expense action obj with default values', () => {
-//   const action = addExpense();
-//   expect(action).toEqual({
-//     type: 'ADD_EXPENSE',
-//     expense: {
-//       id: expect.any(String),
-//       description: '',
-//       notes: '',
-//       amount: 0,
-//       createdAt: 0,
-//     }
-//   });
-// });

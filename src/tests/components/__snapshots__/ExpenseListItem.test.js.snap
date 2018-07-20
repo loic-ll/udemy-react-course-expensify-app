@@ -1,39 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ExpenseListItem should render with props 1`] = `
-<div>
-  <Link
-    replace={false}
-    to="/edit/1"
-  >
-    <h3>
+<Link
+  className="list-item"
+  replace={false}
+  to="/edit/1"
+>
+  <div>
+    <h3
+      className="list-item__title"
+    >
       bcd
     </h3>
-  </Link>
-  <p>
-    0.22 $
-    <span>
-       - 
+    <span
+      className="list-item__subtitle"
+    >
+      December 28, 1969
     </span>
-    December 28, 1969
-  </p>
-</div>
+  </div>
+  <h3
+    className="list-item__data"
+  >
+    0.22 $
+  </h3>
+</Link>
 `;
 
 exports[`ExpenseListItem should render without any props 1`] = `
-<div>
-  <Link
-    replace={false}
-    to="/edit/undefined"
-  >
-    <h3 />
-  </Link>
-  <p>
-    0.00 $
-    <span>
-       - 
+<Link
+  className="list-item"
+  replace={false}
+  to="/edit/undefined"
+>
+  <div>
+    <h3
+      className="list-item__title"
+    />
+    <span
+      className="list-item__subtitle"
+    >
+      January 1, 1970
     </span>
-    January 1, 1970
-  </p>
-</div>
+  </div>
+  <h3
+    className="list-item__data"
+  >
+    0.00 $
+  </h3>
+</Link>
 `;

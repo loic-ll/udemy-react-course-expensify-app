@@ -1,14 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
+  color: $dark-grey;
   font-size: $m-size;
-  font-family: Helvetica, Arial,  sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.6;
 }
 
 button {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 button:disabled {
